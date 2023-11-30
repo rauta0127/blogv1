@@ -1,0 +1,79 @@
+---
+title: 色々投稿スタイルを試す
+date: '2023-11-30'
+tags: ['markdown', 'code', 'features']
+draft: false
+summary: どういう投稿スタイルができるかなどを確認する
+---
+
+このブログはNext.jsで作成しているけど、どんな投稿が可能なのか、どんな埋め込みなどが可能なのか、などを確認する。
+基本的なやりたいことはほとんどできそうなので満足している。
+
+# Markdown
+
+マークダウンは当然ながら普通に標準的なものはできる
+
+##  This is Header2
+
+**This text will be bold**
+
+1. Item 1
+1. Item 2
+1. Item 3
+   1. Item 3a
+   1. Item 3b
+
+```python
+import numpy as np
+
+a = np.arange(15).reshape(3, 5)
+```
+
+| First Header                | Second Header                |
+| --------------------------- | ---------------------------- |
+| Content from cell 1         | Content from cell 2          |
+| Content in the first column | Content in the second column |
+
+
+# Embedding
+
+各種iframe系の埋め込みなど
+
+### Youtube埋め込み
+埋め込み用HTMLをコピペするだけで可能
+<iframe width="560" height="315" src="https://www.youtube.com/embed/adDA5VgM9O4?si=eGOYCeGRYZmgp0nG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
+### GoogleMap埋め込み
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.827853707492!2d139.76454987649285!3d35.6812405299723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2sTokyo%20Station!5e0!3m2!1sen!2sjp!4v1700195716738!5m2!1sen!2sjp" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+
+
+# Image Gallery
+
+<div className="-mx-2 flex flex-wrap overflow-hidden xl:-mx-2">
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![Maple](/static/images/canada/maple.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![Lake](/static/images/canada/lake.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![Mountains](/static/images/canada/mountains.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![Toronto](/static/images/canada/toronto.jpg)
+  </div>
+</div>
+
+# Latex
+
+$$
+\mathbf{Y} = \left[\begin{array}
+  {c}
+  y_1 \\
+  . \\
+  . \\
+  . \\
+  y_n
+\end{array}\right]
+$$
