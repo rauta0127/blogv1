@@ -8,7 +8,7 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://rauta0127.github.io/blogv1/',
   siteRepo: 'https://github.com/rauta0127/blogv1',
-  siteLogo: '/static/images/logo.png',
+  siteLogo: '/static/images/google.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'address@yoursite.com',
