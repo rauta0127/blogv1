@@ -34,19 +34,123 @@ a = np.arange(15).reshape(3, 5)
 | Content from cell 1         | Content from cell 2          |
 | Content in the first column | Content in the second column |
 
+# Linkcard
+
+[Gatsby](https://github.com/gatsbyjs/gatsby/)
+<Iframely />
+<div className="iframely-embed"><div className="iframely-responsive" styles="height: 140px; padding-bottom: 0;"><a href="https://github.com/gatsbyjs/gatsby" data-iframely-url="//iframely.net/mlzQxwo?card=small"></a></div></div>
+
+こちらの記事に倣いiframely.jsを導入すればできます。記事内では「templates/blog-post.js に Iframely を配置する」とありますが、mdxファイル内に直接記述しても動きます。
+
+<div className="iframely-embed"><div className="iframely-responsive" styles="height: 140px; padding-bottom: 0;"><a href="https://expfrom.me/gatsby-use-iframely.md/" data-iframely-url="//iframely.net/DVGKaYu"></a></div></div>
+
+実際のコード
+```js:iframely.js
+"use client"
+
+import React, { useEffect } from "react"
+import { Helmet } from "react-helmet"
+
+const Iframely = () => {
+  // 古い記事に遷移したときにもCDNがロードされるように、rendering後loadする
+  useEffect(() => {
+    if (window && window.iframely) {
+      window.iframely.load()
+    }
+  }, [])
+
+  return (
+    <Helmet>
+      <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" />
+    </Helmet>
+  )
+}
+
+export default Iframely
+```
+
+```js
+<Iframely />
+<div className="iframely-embed"><div className="iframely-responsive" styles="height: 140px; padding-bottom: 0;"><a href="https://github.com/gatsbyjs/gatsby" data-iframely-url="//iframely.net/mlzQxwo?card=small"></a></div></div>
+```
+
 
 # Embedding
 
 各種iframe系の埋め込みなど
 
 ### Youtube埋め込み
-埋め込み用HTMLをコピペするだけで可能
-<iframe width="560" height="315" src="https://www.youtube.com/embed/adDA5VgM9O4?si=eGOYCeGRYZmgp0nG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+埋め込み用HTMLをコピペすれば良い。ただそのままだとサイズが固定されているのでレスポンシブ対応させるためにcssは書いたほうが良さそう
+<div className="youtube">
+    <iframe src="https://www.youtube.com/embed/adDA5VgM9O4?si=eGOYCeGRYZmgp0nG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+</div>
+
+<style>
+    {`
+.youtube{
+    position:relative;
+    width:100%;
+    height:0;
+    padding-top:75%;
+}
+.youtube iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+`}
+</style>
+
+実際のコード
+```js
+<div className="youtube">
+    <iframe src="https://www.youtube.com/embed/adDA5VgM9O4?si=eGOYCeGRYZmgp0nG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+</div>
+
+<style>
+    {`
+.youtube{
+    position:relative;
+    width:100%;
+    height:0;
+    padding-top:75%;
+}
+.youtube iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+`}
+</style>
+```
 
 ### GoogleMap埋め込み
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.827853707492!2d139.76454987649285!3d35.6812405299723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2sTokyo%20Station!5e0!3m2!1sen!2sjp!4v1700195716738!5m2!1sen!2sjp" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+<div className="google-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.827853707492!2d139.76454987649285!3d35.6812405299723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2sTokyo%20Station!5e0!3m2!1sen!2sjp!4v1700195716738!5m2!1sen!2sjp" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+</div>
 
+<style>
+    {`
+.google-map{
+    position:relative;
+    width:100%;
+    height:0;
+    padding-top:75%;
+}
+.google-map iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+`}
+</style>
 
 # Image Gallery
 
