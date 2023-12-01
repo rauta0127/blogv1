@@ -1,7 +1,7 @@
-"use client";
+'use·client';
 
-import React, { useEffect } from "react"
-import { Helmet } from "react-helmet"
+import React, { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 
 const Iframely = () => {
   // 古い記事に遷移したときにもCDNがロードされるように、rendering後loadする
