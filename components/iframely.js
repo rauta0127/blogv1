@@ -9,15 +9,15 @@ const Iframely = () => {
     if (window && window.iframely) {
       // 非同期にロードする
       const loadIframely = async () => {
-        await window.iframely.load();
-      };
-      loadIframely();
+        await window.iframely.load()
+      }
+      loadIframely()
     }
-  }, []);
+  }, [])
 
   return (
     <Helmet>
-      <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" />
+      <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" async />
     </Helmet>
   )
 }
